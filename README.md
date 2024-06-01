@@ -31,11 +31,14 @@ To start the project, follow these steps:
 
 - **Application Port:**
   Note that the application port has been changed from the default 3000 to 4000.
+  Navigate to this url to test the endpoint that will soon change
+
+  ```bash
+  http://localhost:4000/waitlist
+  ```
 
 ## Raising Issues
 
 If you encounter any issues, feel free to raise them on [GitHub](https://github.com/your-repo/issues).
 
----
 
-By following the steps above, you will be able to set up and run the waitlist application, allowing users to register their interest in learning various tech skills.
