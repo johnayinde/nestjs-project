@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: nestjs-waitlist-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - database
+    command: npm run start:dev
+
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - "MONGO_INITDB_ROOT_USERNAME=admin"
+      - "MONGO_INITDB_ROOT_PASSWORD=password"
+    volumes:
+      - "mongodb-data:/data/db"
+
+volumes:
+  mongodb-data:
