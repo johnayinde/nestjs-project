@@ -1,4 +1,9 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
 @Controller('waitlist')
-export class WaitlistController {}
+export class WaitlistController {
+    @Get()
+    getWaitlist(){
+        return [{Message:"welcome to nestjs waitlist"}]
+    }
+}
