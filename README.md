@@ -37,8 +37,35 @@ To start the project, follow these steps:
   http://localhost:4000/waitlist
   ```
 
-## Raising Issues
+## When you install a new package while the application is already running in Docker, you often need to restart the container to make sure the new dependencies are properly loaded. This is because the container's environment does not automatically reflect changes made to the dependencies.
 
-If you encounter any issues, feel free to raise them on [GitHub](https://github.com/your-repo/issues).
+Here's what you need to do:
+
+1. **Rebuild the Docker Image:**
+   Rebuilding ensures that any changes in your dependencies are included in the Docker image.
+   ```bash
+   docker-compose build
+   ```
+
+2. **Restart the Docker Containers:**
+   This step will stop and then start the containers again, applying the latest changes.
+   ```bash
+   docker-compose up -d
+   ```
+
+### Steps to Install a New Package and Restart the Container
+
+1. **Install the new package:**
+   ```bash
+   npm install <package-name>
+   ```
+
+2. **Rebuild and restart the Docker containers:**
+   ```bash
+   docker-compose build
+   docker-compose up -d
+   ```
+
+
 
 

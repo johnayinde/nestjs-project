@@ -1,12 +1,17 @@
 import { Module } from '@nestjs/common';
 import { WaitlistController } from './waitlist.controller';
 import { WaitlistService } from './waitlist.service';
-import { MongooseModule } from '@nestjs/mongoose';
-// import { UsersModule } from './users/user.module';
+import { MongooseModule } from "@nestjs/mongoose";
+import { User, UserSchema } from "./schema/user.schema";
 
 @Module({
-  // This is just like saying mongoose.connect(url)
-  imports: [ MongooseModule.forRoot('mongodb://admin:password@database'),
+  imports: [
+    MongooseModule.forFeature([
+        {
+            name: User.name,
+            schema:UserSchema
+        }
+    ])
 ],
   controllers: [WaitlistController],
   providers: [WaitlistService]
