@@ -17,6 +17,7 @@ export class WaitlistController {
     @UsePipes(new ValidationPipe)
     createUser(@Body() createUserDto:CreateUserDto){
         console.log(createUserDto)
+        return this.user.createUser(createUserDto)
     }
 
 }
